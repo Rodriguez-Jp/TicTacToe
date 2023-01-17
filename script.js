@@ -12,5 +12,8 @@ const checkSelection = (cell) => {
     cell.innerText = token;
     token === "X" ? (token = "O") : (token = "X");
     cell.removeEventListener("click", checkSelection);
+    cell.setAttribute("data-check", "yes");
+  } else {
+    alert("Celda no disponible");
   }
 };
