@@ -20,6 +20,7 @@ cells.forEach((cell) => {
 const resetGame = () => {
   window.location.reload();
 };
+
 const checkSelection = (cell) => {
   if (cell.getAttribute("data-check") === "no") {
     feedArray(cell, token);
@@ -51,7 +52,6 @@ const feedArray = (cell, token) => {
     gameArray[2].splice(number - 6 - 1, 1, token);
   }
 
-  console.log(gameArray);
   checkHorizontal();
   checkVertical();
   checkDiagonal();
@@ -71,9 +71,11 @@ const checkHorizontal = () => {
     row2 === "OOO" ||
     row3 === "OOO"
   ) {
+    let winner = currentPlayer;
     setTimeout(() => {
-      alert("Winner");
+      alert("Winner " + winner);
       resetGame();
+      return;
     }, 500);
   }
 };
@@ -92,9 +94,11 @@ const checkVertical = () => {
     column2 === "OOO" ||
     column3 === "OOO"
   ) {
+    let winner = currentPlayer;
     setTimeout(() => {
-      alert("Winner " + currentPlayer);
+      alert("Winner " + winner);
       resetGame();
+      return;
     }, 500);
   }
 };
@@ -110,9 +114,11 @@ const checkDiagonal = () => {
     diagonal1 === "OOO" ||
     diagonal2 === "OOO"
   ) {
+    let winner = currentPlayer;
     setTimeout(() => {
-      alert("Winner");
+      alert("Winner " + winner);
       resetGame();
+      return;
     }, 500);
   }
 };
